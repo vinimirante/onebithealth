@@ -7,9 +7,9 @@ export default function Form (){
 
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
-    const [messageImc, setMessageImc] = useState("preencha o peso e altura")
+    const [messageImc, setMessageImc] = useState("Preencha o peso e altura")
     const [imc, setImc] = useState(null)
-    const [textButton, setTextButton] = useState("calcular")
+    const [textButton, setTextButton] = useState("Calcular")
 
     function imcCalculator (){
         return setImc((weight/(height*height)).toFixed(2))
@@ -26,7 +26,7 @@ export default function Form (){
         }
         setImc(null)
         setTextButton("Calcular")
-        setMessageImc("preencha o peso e altura")
+        setMessageImc("Preencha o peso e altura")
     }
 
     return(
@@ -38,7 +38,7 @@ export default function Form (){
                     onChangeText = {setHeight}
                     value={height}
                     placeholder="Ex.: 1.70" 
-                    keyboardType="numeric"
+                    keyboardType="default"
                     />
                 <Text style={styles.formLabel}>Peso</Text>
                 <TextInput
@@ -46,7 +46,7 @@ export default function Form (){
                     onChangeText = {setWeight}
                     value = {weight}
                     placeholder="Ex.: 62.35" 
-                    keyboardType="numeric"/>
+                    keyboardType="default"/>
 
                 <TouchableOpacity
                     style = {styles.buttonCalculator}
@@ -56,6 +56,7 @@ export default function Form (){
                 </TouchableOpacity>
                 
                 <ResultImc messageResultImc={messageImc} messageImc={imc}/>
+                
             </View>
         </View>
     );
